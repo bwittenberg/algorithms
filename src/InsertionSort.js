@@ -13,7 +13,7 @@ const recursiveSort = (arr, startIdx = 0, endIdx = arr.length - 1) => {
   arr[i + 1] = valueToSort;
 };
 
-const sort = (arr) => {
+const sort = arr => {
   for (let j = 1; j < arr.length; j++) {
     const valueToSort = arr[j];
     let i = j - 1;
@@ -28,5 +28,5 @@ const sort = (arr) => {
 
 module.exports = {
   sort,
-  recursiveSort,
+  recursiveSort
 };

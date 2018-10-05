@@ -1,7 +1,11 @@
-module.exports.sort = (arr) => {
+module.exports.sort = arr => {
   for (let insertionIndex = 0; insertionIndex < arr.length; insertionIndex++) {
     let smallestNumberIndex = insertionIndex;
-    for (let searchIndex = insertionIndex + 1; searchIndex < arr.length; searchIndex++) {
+    for (
+      let searchIndex = insertionIndex + 1;
+      searchIndex < arr.length;
+      searchIndex++
+    ) {
       if (arr[searchIndex] < arr[smallestNumberIndex]) {
         smallestNumberIndex = searchIndex;
       }
