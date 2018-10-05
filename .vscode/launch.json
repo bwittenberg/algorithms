@@ -9,10 +9,8 @@
       "request": "launch",
       "name": "Jest Current File",
       "program": "${workspaceFolder}/node_modules/jest/bin/jest",
-      "args": [
-        "${file}"
-      ],
-      "internalConsoleOptions": "openOnSessionStart"
+      "args": ["${file}"],
+      "console": "integratedTerminal"
     }
   ]
 }
