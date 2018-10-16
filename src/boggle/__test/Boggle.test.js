@@ -1,59 +1,59 @@
-describe('given a board of characters', () => {
-    let board;
-    beforeEach(() => {
-        board = [
-            ['g', 'i', 'z'],
-            ['u', 'e', 'k'],
-            ['q', 's', 'e'],
-        ];
-    });
-
-    describe('when searching for a character in the board', () => {
-        fit('should return the row and column pair', () => {
-            expect(findPointInBoard({ board, char: 'e' }))
-                .toEqual([1,1]);
-        });
-    });
-
-    describe('when searching for a word that exists', () => {
-        it('should return true', () => {
-            const word = 'geeks';
-            expect(find({ board, word })).toBe(true);
-        });
-    });
+describe("given a board of characters and a list of words", () => {
+  let board;
+  let words;
+  beforeEach(() => {
+    words = ["GEEKS", "FOR", "QUIZ", "GO"];
+    board = [["g", "i", "z"], ["u", "e", "k"], ["q", "s", "e"]];
+  });
 });
 
-// model the problem
-// 1. find first character
-// start at row 0 column 0
-// loop rows then columns and return first char in [row, column] pair
-
-// 2. Look for next char
-// starting at [row,column]
-// look E, SE, S, SW, W, NW, N, NE
-// if not found, terminate with not found
-// nextChar with new starting point
-
-const findPointInBoard = ({ board, char }) => {
-    for(let rowIndex in board) {
-        for(let columnIndex in board[rowIndex]) {
-            const value = board[rowIndex][columnIndex];
-            if (value === char) {
-                return [Number(columnIndex), Number(rowIndex)];
-            }
-        }
-    }
-    return [];
+const solve = (board, words) => {
+  return words.filter(word => findInBoard([], word));
 };
 
-const searchNeighbors = ({ board, start, char }) => {
-    const rightPoint = start[1]
+const findInBoard = (startingPoints, word, usedPoints = {}, acc = false) => {
+  if (!startingPoints.length) {
+    return acc;
+  }
 };
 
-const find = ({ board, word }) => {
-    let wordIndex = 0;
-    const start = findPointInBoard({ board, char: word[wordIndex] });
-    wordIndex++;
+const neighbors = [
+  [-1, -1],
+  [0, -1],
+  [1, -1],
+  [-1, 0],
+  ,
+  [1, 0],
+  [-1, 1],
+  [0, 1],
+  [1, 1]
+];
+const search = (point, chars, usedPoints = {}, acc = false) => {
+  if (!chars.length) {
+    return true;
+  }
+  neighbors.map(delta => {
+    const [dx, dy] = delta;
+    const [x, y] = point;
+    const nextPoint = [];
+    search();
+  });
+};
 
+const dfs = (node, value) => {
+  if (!node) {
+    return false;
+  }
 
+  if (node.value === value) {
+    return true;
+  }
+
+  let found;
+  found = dfs(node.left);
+  if (found) {
+    return true;
+  }
+
+  return dfs(node.right);
 };
