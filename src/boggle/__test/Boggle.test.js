@@ -3,7 +3,12 @@ describe("given a board of characters and a list of words", () => {
   let words;
   beforeEach(() => {
     words = ["GEEKS", "FOR", "QUIZ", "GO"];
-    board = [["g", "i", "z"], ["u", "e", "k"], ["q", "s", "e"]];
+
+    // prettier-ignore
+    board = [
+            ["g", "i", "z"],
+            ["u", "e", "k"],
+            ["q", "s", "e"]];
   });
 });
 
@@ -17,16 +22,11 @@ const findInBoard = (startingPoints, word, usedPoints = {}, acc = false) => {
   }
 };
 
+// prettier-ignore
 const neighbors = [
-  [-1, -1],
-  [0, -1],
-  [1, -1],
-  [-1, 0],
-  ,
-  [1, 0],
-  [-1, 1],
-  [0, 1],
-  [1, 1]
+  [-1, -1],[0, -1],[1, -1],
+  [-1, 0],        ,[1, 0],
+  [-1, 1],[0, 1],[1, 1]
 ];
 const search = (point, chars, usedPoints = {}, acc = false) => {
   if (!chars.length) {
